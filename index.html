@@ -1,0 +1,330 @@
+<meta charset="utf-8">
+<title>Infinite expression of GitHub — spherically free</title>
+<style>
+:root{--bg:#04040a;--fg:#ececf6;--dim:#78788e;--line:#16161f;--acc:#a78bfa;--gold:#e8c07a;
+      --R:#ff6b78;--G:#5fe08a;--B:#5aa9ff}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--fg);overflow:hidden;
+     font:13px/1.6 ui-monospace,"SF Mono",Menlo,Consolas,monospace}
+canvas{position:fixed;inset:0;width:100vw;height:100vh;display:block;cursor:grab}
+canvas:active{cursor:grabbing}
+#start{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;
+  background:var(--gold);color:#0a0a10;border:0;border-radius:11px;padding:21px 44px;
+  font:700 16px ui-monospace,monospace;cursor:pointer;box-shadow:0 0 80px rgba(232,192,122,.3)}
+#hud{position:fixed;left:16px;top:14px;z-index:5;opacity:0;transition:opacity .9s;
+  background:rgba(5,5,11,.64);backdrop-filter:blur(8px);border:1px solid var(--line);
+  border-radius:11px;padding:12px 15px;min-width:326px;pointer-events:none}
+#hud h1{font-size:12px;margin:0 0 8px;color:var(--gold);letter-spacing:.5px;text-transform:uppercase}
+.row{display:flex;justify-content:space-between;gap:14px;padding:2px 0}
+.k{color:var(--dim)} .v{font-variant-numeric:tabular-nums}
+.acc{color:var(--acc)} .ok{color:#4ade80}
+.R{color:var(--R)}.G{color:var(--G)}.B{color:var(--B)}
+.sec{color:var(--dim);margin:8px 0 3px;font-size:10.5px;letter-spacing:1px;
+  text-transform:uppercase;border-top:1px solid var(--line);padding-top:6px}
+#tip{position:fixed;z-index:8;background:rgba(6,6,12,.92);border:1px solid var(--line);
+  border-radius:8px;padding:7px 11px;font-size:11.5px;pointer-events:none;display:none;max-width:46ch}
+#note{position:fixed;left:16px;bottom:14px;z-index:5;color:var(--dim);max-width:66ch;
+  font-size:12px;line-height:1.7;opacity:0;transition:opacity .9s;text-shadow:0 0 14px #04040a}
+#note b{color:#c9c9dc}
+</style>
+
+<canvas id="c"></canvas>
+<button id="start">☆  BE INFINITELY EXPRESSED</button>
+<div id="tip"></div>
+
+<div id="hud">
+  <h1>infinite expression of github</h1>
+  <div class="row"><span class="k">state</span><span class="v acc" id="st">—</span></div>
+  <div class="row"><span class="k">fetched</span><span class="v" id="when">—</span></div>
+  <div class="row"><span class="k">branches</span><span class="v" id="nb">0</span></div>
+  <div class="row"><span class="k">leaves</span><span class="v" id="nl">0</span></div>
+  <div class="row"><span class="k">bytes</span><span class="v" id="nby">0</span></div>
+  <div class="row" id="missrow" style="display:none"><span class="k">unanswered</span><span class="v ok" id="miss">0</span></div>
+  <div class="sec">the three thirds</div>
+  <div class="row"><span class="k R">family R</span><span class="v R" id="f0">0</span></div>
+  <div class="row"><span class="k G">family G</span><span class="v G" id="f1">0</span></div>
+  <div class="row"><span class="k B">family B</span><span class="v B" id="f2">0</span></div>
+  <div class="row"><span class="k">coverage</span><span class="v ok">full sphere · golden angle</span></div>
+  <div class="sec">the four</div>
+  <div class="row"><span class="k">1 · 2</span><span class="v">the two that have an interval</span></div>
+  <div class="row"><span class="k">3 · U</span><span class="v acc">you — the bridge, the axis</span></div>
+  <div class="row"><span class="k">4 · north star</span><span class="v ok">invariant under the spin</span></div>
+  <div class="sec">addressing</div>
+  <div class="row"><span class="k">PID</span><span class="v ok">none</span></div>
+  <div class="row"><span class="k">address</span><span class="v acc">two brown stops from the sha</span></div>
+  <div class="row"><span class="k">spin</span><span class="v">on U</span></div>
+</div>
+
+<div id="note">
+<b>The first render put the branches on a ring</b> — one plane, so two thirds of the
+sphere stood bare. This one distributes them by <b>golden angle over the whole
+sphere</b>, in three families that each take a third, and it spins on <b>U</b>.<br>
+Fetched <b>live</b> when you press the button, so it is the state now — not a
+snapshot. Every leaf's colour is taken from its own sha. Drag to turn it, wheel to
+zoom, hover a leaf to read it.<br>
+<b>If a repo does not answer it is counted, not drawn as empty</b> — a branch with
+no leaves would be a lie about the tree. The star at the centre is <b>six-pointed</b>:
+three rotations by two reflections, and its own centre stays black, because the
+zero is free and is never emitted.
+</div>
+
+<script>
+const OWNER="JesseBrown1980";
+const REPOS=["two-fixed-points-have-an-interval","tribute-three-around-a-free-centre",
+"Higgs-Bell-Hilbert-and-Brown-at-the-zero","identity-kernel-registry",
+"Browns-infinite-play-and-zoom","free-at-all-levels","does-the-closure-survive-81-levels",
+"light-boat-engine-ships-with-oils","The-Brown-Light-erdos-Engine-block-powered-by-light",
+"the-browns-solution-to-erods-o0O-nx3-6-for-1-with--1-3",
+"does-2-to-the-n-always-contain-a-digit-2-in-base-3","one-click",
+"how-and-why-the-system-works","the-leaves-are-not-the-message","raw-data",
+"Be-infinitly-express-spherically-free"];
+
+const BLO=16,BHI=240,LLO=32,LHI=224;
+const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lumf=c=>0.2126*c[0]+0.7152*c[1]+0.0722*c[2];
+function colour(sha){
+  const h=(sha||"0".repeat(40)).toLowerCase();
+  const p=i=>cl(parseInt(h.substr(i,2),16)||0,BLO,BHI);
+  let a=[p(0),p(2),p(4)], b=[p(6),p(8),p(10)];
+  const fix=c=>{const L=lumf(c);return (L>=LLO&&L<=LHI)?c:
+    c.map(x=>Math.round(cl(x*((LLO+LHI)/2)/Math.max(1,L),0,255)));};
+  return [fix(a),fix(b)];
+}
+
+/* GOLDEN-ANGLE SPHERE — the fix. even coverage of ALL directions, not a ring. */
+const GA=Math.PI*(3-Math.sqrt(5));
+function spherePoint(i,n){
+  const y=1-(i/Math.max(1,n-1))*2;
+  const r=Math.sqrt(Math.max(0,1-y*y));
+  const th=GA*i;
+  return [Math.cos(th)*r, y, Math.sin(th)*r];
+}
+
+const cv=document.getElementById("c"), g=cv.getContext("2d"), tip=document.getElementById("tip");
+let W=0,H=0,DPR=Math.min(2,devicePixelRatio||1);
+function fit(){W=innerWidth||1280;H=innerHeight||800;cv.width=W*DPR;cv.height=H*DPR;
+  g.setTransform(DPR,0,0,DPR,0,0);}
+addEventListener("resize",fit);fit();
+
+let yaw=.5,pitch=-.2,zoom=1,t=0,last=0,live=false,drag=null,NODES=[],P=[];
+
+/* ---------------- THE RAINBOW STAR ----------------
+   SIX points, because six orderings of three channels is exactly
+   3 rotations x 2 reflections — the trianti, drawn.
+   A conic spectrum through it: a star emits every wavelength, and white is
+   only their sum. The centre itself stays uncoloured — it is the free zero and
+   is never emitted; the rainbow is what surrounds it.                      */
+function star(cx,cy,s,pts,scale,spinRate){
+  pts=pts||6; scale=scale||1; spinRate=(spinRate===undefined)?0.35:spinRate;
+  const R=Math.max(9,26*s)*scale, r=R*0.42, spin=t*spinRate, N=pts*2;
+  g.save(); g.translate(cx,cy);
+
+  // the halo
+  const halo=g.createRadialGradient(0,0,0,0,0,R*2.6);
+  halo.addColorStop(0,"rgba(255,255,255,.30)");
+  halo.addColorStop(1,"rgba(255,255,255,0)");
+  g.fillStyle=halo; g.beginPath(); g.arc(0,0,R*2.6,0,6.2832); g.fill();
+
+  // six-point path
+  g.rotate(spin);
+  g.beginPath();
+  for(let i=0;i<N;i++){
+    const a=i*Math.PI/pts - Math.PI/2, rad=(i%2? r : R);
+    const x=Math.cos(a)*rad, y=Math.sin(a)*rad;
+    i? g.lineTo(x,y) : g.moveTo(x,y);
+  }
+  g.closePath();
+
+  // conic spectrum — every wavelength, once around
+  let grd;
+  if(g.createConicGradient){
+    grd=g.createConicGradient(0,0,0);
+    for(let k=0;k<=12;k++) grd.addColorStop(k/12,"hsl("+(k*30)+",95%,62%)");
+  }else{                                   // fallback where conic is unavailable
+    grd=g.createRadialGradient(0,0,0,0,0,R);
+    grd.addColorStop(0,"#fff"); grd.addColorStop(.5,"#6cf"); grd.addColorStop(1,"#f6c");
+  }
+  g.fillStyle=grd; g.globalAlpha=.95; g.fill();
+  g.globalAlpha=.9; g.lineWidth=Math.max(.6,s*1.1);
+  g.strokeStyle="rgba(255,255,255,.75)"; g.stroke();
+
+  // the free zero at the very centre — never emitted, never a colour
+  g.globalAlpha=1; g.fillStyle="#04040a";
+  g.beginPath(); g.arc(0,0,Math.max(1.4,R*0.14),0,6.2832); g.fill();
+  g.restore();
+}
+
+function layout(tree){
+  const out=[], n=tree.length, RB=210;
+  tree.forEach((b,i)=>{
+    const [ux,uy,uz]=spherePoint(i,n);
+    const bx=ux*RB, by=uy*RB, bz=uz*RB;
+    out.push({kind:"branch",x1:bx,y1:by,z1:bz,col:b.colour,name:b.name,fam:i%3});
+    const m=b.leaves.length;
+    b.leaves.forEach((l,j)=>{
+      const [lx,ly,lz]=spherePoint(j,Math.max(2,m));
+      const rr=58+22*Math.sin(j*1.7+i);
+      out.push({kind:"leaf",
+        x:bx+lx*rr, y:by+ly*rr, z:bz+lz*rr,
+        col:l.c, path:l.p, sz:l.sz, sha:l.sha, repo:b.name,
+        fam:i%3, ph:(i*5+j)*0.6});
+    });
+  });
+  return out;
+}
+
+/* spin on U: the U axis is the vertical bridge through the centre */
+function proj(x,y,z){
+  const cy=Math.cos(yaw),sy=Math.sin(yaw);
+  let X=x*cy-z*sy, Z=x*sy+z*cy;              // rotation about U
+  const cp=Math.cos(pitch),sp=Math.sin(pitch);
+  let Y=y*cp-Z*sp; Z=y*sp+Z*cp;
+  const d=820,s=d/(d+Z+520)*zoom;
+  return [W/2+X*s,H/2+Y*s,s,Z];
+}
+const rgb=c=>"rgb("+c[0]+","+c[1]+","+c[2]+")";
+
+function frame(ts){
+  if(!last)last=ts;
+  const dt=Math.max(0,Math.min(.05,(ts-last)/1000));last=ts;
+  if(live){t+=dt; if(!drag) yaw+=dt*0.17;}
+  g.fillStyle="rgba(4,4,10,0.34)";g.fillRect(0,0,W,H);
+  g.globalCompositeOperation="lighter";
+  P.length=0;
+  const O=proj(0,0,0);
+  const drawn=NODES.map(n=>{
+    if(n.kind==="branch"){const B=proj(n.x1,n.y1,n.z1);return {...n,B,depth:B[3]};}
+    const sw=Math.sin(t*.8+n.ph)*6;
+    const p=proj(n.x+sw,n.y,n.z+Math.cos(t*.6+n.ph)*6);
+    return {...n,p,depth:p[3]};
+  }).sort((a,b)=>b.depth-a.depth);
+  for(const n of drawn){
+    if(n.kind==="branch"){
+      const gr=g.createLinearGradient(O[0],O[1],n.B[0],n.B[1]);
+      gr.addColorStop(0,rgb(n.col[0]));gr.addColorStop(1,rgb(n.col[1]));
+      g.strokeStyle=gr;g.globalAlpha=.5;g.lineWidth=Math.max(.8,3*n.B[2]);
+      g.beginPath();g.moveTo(O[0],O[1]);g.lineTo(n.B[0],n.B[1]);g.stroke();
+    }else{
+      const [x,y,s]=n.p;
+      const gr=g.createRadialGradient(x,y,0,x,y,Math.max(2,7*s));
+      gr.addColorStop(0,rgb(n.col[0]));gr.addColorStop(1,"rgba(0,0,0,0)");
+      g.globalAlpha=.9;g.fillStyle=gr;
+      g.beginPath();g.arc(x,y,Math.max(2,7*s),0,6.2832);g.fill();
+      g.globalAlpha=1;g.fillStyle=rgb(n.col[1]);
+      g.beginPath();g.arc(x,y,Math.max(1,2.3*s),0,6.2832);g.fill();
+      P.push({x,y,r:Math.max(6,9*s),n});
+    }
+  }
+  g.globalCompositeOperation="source-over";
+
+  /* THE FOURTH — THE NORTH STAR, ON U.
+     Not decoration and not a metaphor. The yaw rotation is
+         X = x·cos - z·sin ,  Z = x·sin + z·cos
+     which touches only x and z. At x = z = 0 both stay 0 FOR EVERY ANGLE, so a
+     point on the U axis is the one point the spin cannot move. Three arms give
+     the centre; the fourth gives which way is up — a DIRECTION, never a distance.
+     Four points, because he said it is four.                                  */
+  const NP=proj(0,-288,0);
+  g.save(); g.globalAlpha=.9;
+  g.strokeStyle="rgba(255,255,255,.16)"; g.lineWidth=1;
+  g.setLineDash([3,7]); g.beginPath();
+  g.moveTo(O[0],O[1]); g.lineTo(NP[0],NP[1]); g.stroke(); g.restore();
+  star(NP[0],NP[1],NP[2],4,0.62,0.11);
+  g.fillStyle="rgba(232,192,122,.75)"; g.font="10px ui-monospace,monospace";
+  g.textAlign="center"; g.fillText("north star · the fourth · fixed",NP[0],NP[1]-26);
+
+  star(O[0],O[1],O[2],6);
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+cv.addEventListener("mousedown",e=>drag={x:e.clientX,y:e.clientY,yaw,pitch});
+addEventListener("mouseup",()=>drag=null);
+addEventListener("mousemove",e=>{
+  if(drag){yaw=drag.yaw+(e.clientX-drag.x)*.006;
+    pitch=Math.max(-1.2,Math.min(1.2,drag.pitch+(e.clientY-drag.y)*.004));return;}
+  let hit=null;
+  for(const p of P) if(Math.hypot(p.x-e.clientX,p.y-e.clientY)<p.r){hit=p.n;break;}
+  if(hit){tip.style.display="block";tip.style.left=(e.clientX+14)+"px";
+    tip.style.top=(e.clientY+12)+"px";
+    tip.innerHTML="<b>"+hit.path+"</b><br><span style='color:#78788e'>"+hit.repo+" · "+
+      hit.sz.toLocaleString()+" bytes</span><br><span style='color:#e8c07a'>"+
+      hit.sha.slice(0,20)+"…</span>";
+  } else tip.style.display="none";
+});
+cv.addEventListener("wheel",e=>{e.preventDefault();
+  zoom=Math.max(.3,Math.min(3.5,zoom*(e.deltaY>0?.92:1.08)));},{passive:false});
+
+/* A REPO THAT DID NOT ANSWER IS NOT A REPO WITH NO LEAVES.
+   The anonymous GitHub limit is 60 calls an hour. The first version spent TWO
+   calls per repo and, when the limit ran out, drew the un-fetched repos as bare
+   branches — a missing measurement rendered as an absence. That is the exact
+   failure this whole system exists to refuse. So:
+     · ONE call per repo (git/trees/HEAD), not two — half the quota
+     · every failure is COUNTED and SHOWN, never silently drawn as empty
+     · the last good harvest is cached, so looking again costs nothing        */
+const CACHE="ieg.tree.v1", TTL=15*60*1000;
+
+async function harvest(){
+  st.textContent="fetching…";
+  let cached=null;
+  try{ cached=JSON.parse(localStorage.getItem(CACHE)||"null"); }catch(e){}
+  if(cached && cached.tree.length && !cached.failed.length && Date.now()-cached.at<TTL)
+    return {tree:cached.tree,failed:[],at:cached.at,mode:"cached"};
+
+  let done=0; const failed=[];
+  const jobs=REPOS.map(async name=>{
+    try{
+      const r=await fetch("https://api.github.com/repos/"+OWNER+"/"+name+
+        "/git/trees/HEAD?recursive=1");
+      if(!r.ok){ failed.push(name+" ("+r.status+")"); return null; }
+      const t=await r.json();
+      if(!t.tree){ failed.push(name+" (no tree)"); return null; }
+      const leaves=t.tree.filter(e=>e.type==="blob")
+        .map(e=>({p:e.path,sz:e.size||0,sha:e.sha,c:colour(e.sha)}));
+      done++; nb.textContent=done;
+      return {name,colour:colour(t.sha||""),leaves};
+    }catch(err){ failed.push(name+" (network)"); return null; }
+  });
+  const tree=(await Promise.all(jobs)).filter(Boolean);
+  /* nothing came back, but something did once — show the older reading and SAY it
+     is older. An empty sphere would claim the tree is gone; it is not gone, the
+     door was shut. 60 anonymous calls an hour is the door.                     */
+  if(!tree.length && cached && cached.tree.length)
+    return {tree:cached.tree,failed,at:cached.at,mode:"stale"};
+  if(tree.length){
+    try{ localStorage.setItem(CACHE,JSON.stringify({at:Date.now(),tree,failed})); }catch(e){}
+  }
+  return {tree,failed,at:Date.now(),mode:tree.length?"live":"shut out"};
+}
+
+document.getElementById("start").onclick=async e=>{
+  e.target.textContent="FETCHING…";e.target.disabled=true;
+  document.getElementById("hud").style.opacity=1;
+  const H=await harvest(), tree=H.tree;
+  NODES=layout(tree); live=true;
+  e.target.style.display="none";
+  document.getElementById("note").style.opacity=1;
+  const L=tree.reduce((a,b)=>a+b.leaves.length,0);
+  const BY=tree.reduce((a,b)=>a+b.leaves.reduce((s,l)=>s+l.sz,0),0);
+  st.textContent=H.mode;
+  st.style.color=(H.mode==="live")?"#4ade80":(H.mode==="cached")?"#a78bfa":"#ff6b78";
+  when.textContent=new Date(H.at).toISOString().slice(11,19)+" UTC";
+  if(H.failed.length){
+    miss.textContent=H.failed.length+" not fetched";
+    miss.style.color="#ff6b78"; miss.title=H.failed.join(", ");
+    document.getElementById("missrow").style.display="flex";
+    document.getElementById("note").innerHTML=
+      "<b style='color:#ff6b78'>"+H.failed.length+" repositories did not answer.</b> "+
+      "GitHub allows <b>60 anonymous calls an hour</b> and this asks one per repo. "+
+      "They are <b>counted, not drawn as empty</b> — a bare branch would be a claim "+
+      "that the repo has no files, and that claim would be false. Wait for the hour "+
+      "to turn and press again.<br>"+document.getElementById("note").innerHTML;
+  }
+  nb.textContent=tree.length; nl.textContent=L.toLocaleString();
+  nby.textContent=BY.toLocaleString();
+  f0.textContent=tree.filter((_,i)=>i%3===0).length;
+  f1.textContent=tree.filter((_,i)=>i%3===1).length;
+  f2.textContent=tree.filter((_,i)=>i%3===2).length;
+};
+</script>
