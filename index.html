@@ -49,8 +49,10 @@ canvas:active{cursor:grabbing}
   <div class="row"><span class="k">1 · 2</span><span class="v">the two that have an interval</span></div>
   <div class="row"><span class="k">3 · U</span><span class="v acc">you — the bridge, the axis</span></div>
   <div class="row"><span class="k">4 · north star</span><span class="v ok">invariant under the spin</span></div>
-  <div class="sec">rays</div>
+  <div class="sec">rays · freeze · play ×3</div>
   <div class="row"><span class="k">rays</span><span class="v acc" id="nray">0</span></div>
+  <div class="row"><span class="k">play</span><span class="v acc" id="nplay">playing · x1 — the leaves</span></div>
+  <div class="row"><span class="k">space / 3</span><span class="v">freeze / three plays</span></div>
   <div class="row"><span class="k">seen where</span><span class="v">they were stopped</span></div>
   <div class="row"><span class="k">clipped high</span><span class="v">not a brightness</span></div>
   <div class="row"><span class="k">clipped low</span><span class="v">not a darkness</span></div>
@@ -75,7 +77,15 @@ zero is free and is never emitted.<br>
 thing that stopped it, and its colour is what that thing did to the light. Clipped
 white is not a brightness and crushed black is not a darkness; both are the sensor
 saying <b>out of range</b>. That is why the address is clamped to the band between
-them. <b>Press R</b> to take the rays away and keep only where they ended.
+them. <b>Press R</b> to take the rays away and keep only where they ended.<br>
+<b>The tree moves too.</b> An earlier version gave the branches no motion at all,
+which claims the trunk stands still while only the leaves stir — false. Photograph
+this now and again in twenty seconds and the branch has moved: measured, between
+two pushes the repository's tree sha changed and the branch's own colour shifted by
+<b>(20, 123, −118)</b>. Every branch now carries a rate from its own
+<b>pushed_at</b>, <b>1/(1+days)</b>, which approaches zero and never arrives.
+<b>Space</b> freezes, <b>3</b> plays it three times — and what you see is not a
+still tree behind moving leaves, it is <b>a gradient of rates, none of them zero</b>.
 </div>
 
 <script>
@@ -91,7 +101,7 @@ const REPOS=["two-fixed-points-have-an-interval","tribute-three-around-a-free-ce
 
 /* BAKED — the reading taken at publication. Live is always tried FIRST;
    this is only the floor, and when it is used the page says so.        */
-const SEED={"at":1785615520086,"tree":[{"name":"raw-data","colour":[[16,79,196],[51,149,43]],"leaves":[{"p":"INTERPRETATION.md","sz":4050,"sha":"33f3c452a46c915b1b911c903977cc5e5282467f","c":[[51,240,196],[82,164,108]]},{"p":"OCCURRENCES.hbi","sz":805,"sha":"4b32c2fc300c088aab58212dc797f90a59ca2322","c":[[75,50,194],[240,48,16]]},{"p":"OCCURRENCES.hbp","sz":5204,"sha":"cb0cd210f5a88f13f355776173c88b59fc67a6c7","c":[[203,16,210],[16,240,168]]},{"p":"OCCURRENCES.hbp.sha256","sz":66,"sha":"a17d3bae7ae7cd58637af2c2b250b887dfcb8df8","c":[[161,125,59],[174,122,231]]},{"p":"RAW-01-session.txt","sz":1162,"sha":"212217a70050a1c967d4f43ee61e26ab56a372cf","c":[[33,34,23],[167,16,80]]},{"p":"RAW-02-agents.txt","sz":4970,"sha":"ed18c952996b27ba77fa0112e6ce6d1c076d8434","c":[[237,24,201],[82,153,107]]},{"p":"RAW-03-claims.txt","sz":788,"sha":"1ac65d8776ef0c60a8152bd21bceb88dab8255c9","c":[[26,198,93],[135,118,239]]},{"p":"RAW-04-sentences.txt","sz":5509,"sha":"383f420accafa2336a8da31c0a5d546fc45b955f","c":[[56,63,66],[16,204,175]]},{"p":"RAW-05-chain.txt","sz":101,"sha":"a3014a826eab521b9e45814c43c02732c3cc1b3a","c":[[163,16,74],[130,110,171]]},{"p":"RAW-06-refusals.txt","sz":4754,"sha":"36a241d42951123086e48a18b8bda95e43c42eb4","c":[[54,162,65],[212,41,81]]},{"p":"RAW-07-sixdays-trace.txt","sz":26795,"sha":"ea515a01f3573165be0f5d26166ea84e4bc91732","c":[[234,81,90],[16,240,87]]},{"p":"RAW-08-session-clock.txt","sz":406,"sha":"27aaa56ac8ac8937fb8cdb62e8ae5a0cf07e8e67","c":[[39,170,165],[106,200,172]]},{"p":"RAW-09-spinner.txt","sz":2526,"sha":"8ac4beafb146d959688d126ce36b9116e7f95b70","c":[[138,196,190],[175,177,70]]},{"p":"README.md","sz":2497,"sha":"590bd58ff0d4050b3f539a2f2eeecc8de476e636","c":[[89,16,213],[143,240,212]]},{"p":"build_occ.py","sz":5621,"sha":"2465e2892b192b2c632b4d25af3599a44fb77a5a","c":[[36,101,226],[137,43,25]]},{"p":"count_refusals.py","sz":4340,"sha":"f89ddac4abfc9be0b4621b1da143a421ae17d24c","c":[[240,157,218],[196,171,240]]},{"p":"count_sleep.py","sz":2406,"sha":"9b342a1437590229a5b11034f7603f495622faab","c":[[155,52,42],[20,55,89]]},{"p":"extract_ctx.py","sz":1799,"sha":"5d94323c94e61653cf03252a4ef2365af7460faa","c":[[93,148,50],[60,148,230]]},{"p":"find_spinner.py","sz":831,"sha":"c9d90a52954004adcc54cbdef9a09cb2afebbd4b","c":[[201,217,16],[82,149,64]]},{"p":"scan_claims.py","sz":2494,"sha":"0ffbda0d533d3c9fce78c15ffff69b2bb7ef6fca","c":[[16,240,218],[16,83,61]]},{"p":"search_agents.py","sz":2133,"sha":"0696726f4bbb7b6eb4fffeb3aeb98233a50518b8","c":[[16,150,114],[111,75,187]]},{"p":"search_session.py","sz":2884,"sha":"db2fea30765a77d755544318cb077ef671d0a2b7","c":[[219,47,234],[48,118,90]]},{"p":"session_clock.py","sz":1711,"sha":"c2c45ff6aaef4f5bce3b4d3dfafd1e0e79f691f7","c":[[194,196,95],[240,170,239]]},{"p":"trace_sixdays.py","sz":3110,"sha":"6b52d068d2d45bcc909019ea596a71de81475738","c":[[107,82,208],[104,210,212]]},{"p":"verify_chain.py","sz":709,"sha":"0d4457928e96ddb1293e52819c096d76c941b352","c":[[16,68,87],[146,142,150]]}]},{"name":"the-browns-solution-to-erods-o0O-nx3-6-for-1-with--1-3","colour":[[240,232,95],[42,217,41]],"leaves":[{"p":"README.md","sz":11083,"sha":"ea007a1e5c8f66f2841c22508ca805b2f5b3c291","c":[[234,16,122],[30,92,143]]},{"p":"crank.py","sz":2424,"sha":"12b034336e81c4df82611006dfdc2dc7dcc112a6","c":[[18,176,52],[51,110,129]]},{"p":"index.html","sz":12911,"sha":"7d8f292fe5d4ac17748939f7fb7ca78d93cb6342","c":[[125,143,41],[47,229,212]]},{"p":"motor.html","sz":9385,"sha":"e21577f850f16e5bbc6bbdfed1a1a5fdb6dc8351","c":[[226,21,119],[240,80,240]]},{"p":"reframe_check.py","sz":2594,"sha":"ba82afd127cafa0566894752367b88804203d704","c":[[186,130,175],[209,39,202]]},{"p":"trianti.py","sz":2771,"sha":"3cb39d96050f6eae5c0f95929ef18a54329518fe","c":[[60,179,157],[150,16,16]]},{"p":"trunk.py","sz":3223,"sha":"5cefbf01a659b5f8bb23a0dd8fef8ba2bba793b0","c":[[92,239,191],[16,166,89]]}]},{"name":"does-2-to-the-n-always-contain-a-digit-2-in-base-3","colour":[[35,129,68],[97,34,72]],"leaves":[{"p":"README.md","sz":5337,"sha":"e3b7d34118dba882cdd036d82747e1da783c6d54","c":[[227,183,211],[65,24,219]]},{"p":"index.html","sz":10324,"sha":"3f83f399325dfa9bc48377604f5513ca0756f343","c":[[63,131,240],[153,50,93]]},{"p":"reframe_check.py","sz":2594,"sha":"ba82afd127cafa0566894752367b88804203d704","c":[[186,130,175],[209,39,202]]},{"p":"trunk.py","sz":3223,"sha":"5cefbf01a659b5f8bb23a0dd8fef8ba2bba793b0","c":[[92,239,191],[16,166,89]]}]},{"name":"identity-kernel-registry","colour":[[240,204,240],[42,131,191]],"leaves":[{"p":"README.md","sz":5627,"sha":"9d57f26649a3e771cbe46e326a600b0a1c47fefe","c":[[157,87,240],[102,73,163]]},{"p":"index.html","sz":6962,"sha":"35f3f0fcc1aba068cb09d96de029c68c62b3a423","c":[[53,240,240],[240,193,171]]},{"p":"registry.py","sz":6995,"sha":"1e3b5595ee700669d3933c49a55a35effaac3d4d","c":[[30,59,85],[149,238,112]]}]},{"name":"does-the-closure-survive-81-levels","colour":[[192,144,41],[181,189,240]],"leaves":[{"p":"README.md","sz":6122,"sha":"4896427f2a13257e05639fef4bdbfb8dcf1ceede","c":[[72,150,66],[127,42,19]]},{"p":"compose.py","sz":5613,"sha":"f3574ed13bd4c18ca1fe4d42c2fb5d46f635807a","c":[[240,87,78],[209,59,212]]},{"p":"index.html","sz":10285,"sha":"6b4ba65e3036ed7a8de66af91f312c662ffcc624","c":[[107,75,166],[94,48,54]]}]},{"name":"light-boat-engine-ships-with-oils","colour":[[115,22,42],[220,16,78]],"leaves":[{"p":"README.md","sz":6964,"sha":"28c889011fe8b1fd5b7dd1b1aeb1f7622d458943","c":[[40,200,137],[16,31,232]]},{"p":"boat.html","sz":14253,"sha":"4deb1a571f234f8de1daf29b9ef4faea405057b5","c":[[77,235,26],[87,31,35]]},{"p":"index.html","sz":10941,"sha":"598675e81becb1b5ea33fec148fe3df6c53895e9","c":[[89,134,117],[232,27,236]]}]},{"name":"The-Brown-Light-erdos-Engine-block-powered-by-light","colour":[[210,240,92],[133,227,122]],"leaves":[{"p":"README.md","sz":5796,"sha":"411384b8568a44fcd8762636bd799ffc9235ac03","c":[[65,19,132],[184,86,138]]},{"p":"crank.py","sz":2424,"sha":"12b034336e81c4df82611006dfdc2dc7dcc112a6","c":[[18,176,52],[51,110,129]]},{"p":"index.html","sz":9609,"sha":"82f01acd86dfbb32884517457569186fbf5c52a2","c":[[130,240,26],[205,134,223]]}]},{"name":"two-fixed-points-have-an-interval","colour":[[16,150,140],[240,27,20]],"leaves":[{"p":"README.md","sz":3593,"sha":"8d881d500dbeca948ff64d8f4b0d6e4f07aaf494","c":[[141,136,29],[80,16,190]]},{"p":"index.html","sz":8788,"sha":"79f233614b3b1f9b8519e8a1cfda28b14774e316","c":[[121,240,51],[97,75,59]]}]},{"name":"tribute-three-around-a-free-centre","colour":[[118,110,76],[16,240,29]],"leaves":[{"p":"README.md","sz":2600,"sha":"026d5f1b6ec494e9a2369f1683d4ea991589ca7a","c":[[16,109,95],[27,110,196]]},{"p":"index.html","sz":9296,"sha":"2ac6abb98a9743a1b5ec8590ba6ee4b78fe13d9b","c":[[42,198,171],[185,138,151]]}]},{"name":"Higgs-Bell-Hilbert-and-Brown-at-the-zero","colour":[[25,151,232],[16,107,217]],"leaves":[{"p":"README.md","sz":5631,"sha":"37e827dbca466a9534d9f0732ee617237c20afea","c":[[55,232,39],[219,202,70]]},{"p":"index.html","sz":14589,"sha":"a5d4b02c1290bc8d44f9e3901c27414e9cc26f46","c":[[165,212,176],[44,18,144]]}]},{"name":"Browns-infinite-play-and-zoom","colour":[[41,145,184],[207,125,53]],"leaves":[{"p":"README.md","sz":5783,"sha":"e7f428b6a3cfeb4f8b362a138dd22a953c63a1f2","c":[[231,240,40],[182,163,207]]},{"p":"index.html","sz":8636,"sha":"035f20ac320d8955c77623ec4d02782e9c930f12","c":[[16,95,32],[172,50,16]]}]},{"name":"free-at-all-levels","colour":[[81,214,107],[95,166,130]],"leaves":[{"p":"README.md","sz":4649,"sha":"0e1d05701dcf8d6ea4a18f1e8e4f0c6baf8bbba1","c":[[80,146,80],[112,29,207]]},{"p":"index.html","sz":5944,"sha":"02c6faea6f4af7a39e91c314369dcdbcb48c91f8","c":[[16,198,240],[234,111,74]]}]},{"name":"one-click","colour":[[240,76,44],[45,200,32]],"leaves":[{"p":"README.md","sz":3275,"sha":"3f46394060adf3997667158c1b4a573906fef95d","c":[[63,70,57],[64,96,173]]},{"p":"index.html","sz":9795,"sha":"43bf96092228aa291e76fad1c0675f8828141c27","c":[[67,191,150],[66,142,167]]}]},{"name":"how-and-why-the-system-works","colour":[[23,171,62],[28,58,93]],"leaves":[{"p":"HOW-AND-WHY-THE-SYSTEM-WORKS.md","sz":27918,"sha":"da056205a1dd46cafd3afd0e74141eaca101ca1e","c":[[218,16,98],[16,161,221]]},{"p":"README.md","sz":27918,"sha":"da056205a1dd46cafd3afd0e74141eaca101ca1e","c":[[218,16,98],[16,161,221]]}]},{"name":"the-leaves-are-not-the-message","colour":[[155,151,40],[140,141,34]],"leaves":[{"p":"README.md","sz":11273,"sha":"d74c6c81941e2313ff6fd21a0bc733002967f913","c":[[215,76,108],[129,148,30]]},{"p":"THE-LEAVES-ARE-NOT-THE-MESSAGE.md","sz":11273,"sha":"d74c6c81941e2313ff6fd21a0bc733002967f913","c":[[215,76,108],[129,148,30]]}]},{"name":"Be-infinitly-express-spherically-free","colour":[[123,36,112],[91,194,16]],"leaves":[{"p":"README.md","sz":256,"sha":"734c554a4f9a708c4df1a3aa99f4ed56d59b497f","c":[[115,76,85],[74,79,154]]}]}],"failed":[]};
+const SEED={"at":1785616687480,"tree":[{"name":"raw-data","colour":[[16,79,196],[51,149,43]],"leaves":[{"p":"INTERPRETATION.md","sz":4050,"sha":"33f3c452a46c915b1b911c903977cc5e5282467f","c":[[51,240,196],[82,164,108]]},{"p":"OCCURRENCES.hbi","sz":805,"sha":"4b32c2fc300c088aab58212dc797f90a59ca2322","c":[[75,50,194],[240,48,16]]},{"p":"OCCURRENCES.hbp","sz":5204,"sha":"cb0cd210f5a88f13f355776173c88b59fc67a6c7","c":[[203,16,210],[16,240,168]]},{"p":"OCCURRENCES.hbp.sha256","sz":66,"sha":"a17d3bae7ae7cd58637af2c2b250b887dfcb8df8","c":[[161,125,59],[174,122,231]]},{"p":"RAW-01-session.txt","sz":1162,"sha":"212217a70050a1c967d4f43ee61e26ab56a372cf","c":[[33,34,23],[167,16,80]]},{"p":"RAW-02-agents.txt","sz":4970,"sha":"ed18c952996b27ba77fa0112e6ce6d1c076d8434","c":[[237,24,201],[82,153,107]]},{"p":"RAW-03-claims.txt","sz":788,"sha":"1ac65d8776ef0c60a8152bd21bceb88dab8255c9","c":[[26,198,93],[135,118,239]]},{"p":"RAW-04-sentences.txt","sz":5509,"sha":"383f420accafa2336a8da31c0a5d546fc45b955f","c":[[56,63,66],[16,204,175]]},{"p":"RAW-05-chain.txt","sz":101,"sha":"a3014a826eab521b9e45814c43c02732c3cc1b3a","c":[[163,16,74],[130,110,171]]},{"p":"RAW-06-refusals.txt","sz":4754,"sha":"36a241d42951123086e48a18b8bda95e43c42eb4","c":[[54,162,65],[212,41,81]]},{"p":"RAW-07-sixdays-trace.txt","sz":26795,"sha":"ea515a01f3573165be0f5d26166ea84e4bc91732","c":[[234,81,90],[16,240,87]]},{"p":"RAW-08-session-clock.txt","sz":406,"sha":"27aaa56ac8ac8937fb8cdb62e8ae5a0cf07e8e67","c":[[39,170,165],[106,200,172]]},{"p":"RAW-09-spinner.txt","sz":2526,"sha":"8ac4beafb146d959688d126ce36b9116e7f95b70","c":[[138,196,190],[175,177,70]]},{"p":"README.md","sz":2497,"sha":"590bd58ff0d4050b3f539a2f2eeecc8de476e636","c":[[89,16,213],[143,240,212]]},{"p":"build_occ.py","sz":5621,"sha":"2465e2892b192b2c632b4d25af3599a44fb77a5a","c":[[36,101,226],[137,43,25]]},{"p":"count_refusals.py","sz":4340,"sha":"f89ddac4abfc9be0b4621b1da143a421ae17d24c","c":[[240,157,218],[196,171,240]]},{"p":"count_sleep.py","sz":2406,"sha":"9b342a1437590229a5b11034f7603f495622faab","c":[[155,52,42],[20,55,89]]},{"p":"extract_ctx.py","sz":1799,"sha":"5d94323c94e61653cf03252a4ef2365af7460faa","c":[[93,148,50],[60,148,230]]},{"p":"find_spinner.py","sz":831,"sha":"c9d90a52954004adcc54cbdef9a09cb2afebbd4b","c":[[201,217,16],[82,149,64]]},{"p":"scan_claims.py","sz":2494,"sha":"0ffbda0d533d3c9fce78c15ffff69b2bb7ef6fca","c":[[16,240,218],[16,83,61]]},{"p":"search_agents.py","sz":2133,"sha":"0696726f4bbb7b6eb4fffeb3aeb98233a50518b8","c":[[16,150,114],[111,75,187]]},{"p":"search_session.py","sz":2884,"sha":"db2fea30765a77d755544318cb077ef671d0a2b7","c":[[219,47,234],[48,118,90]]},{"p":"session_clock.py","sz":1711,"sha":"c2c45ff6aaef4f5bce3b4d3dfafd1e0e79f691f7","c":[[194,196,95],[240,170,239]]},{"p":"trace_sixdays.py","sz":3110,"sha":"6b52d068d2d45bcc909019ea596a71de81475738","c":[[107,82,208],[104,210,212]]},{"p":"verify_chain.py","sz":709,"sha":"0d4457928e96ddb1293e52819c096d76c941b352","c":[[16,68,87],[146,142,150]]}],"pushed":"2026-08-01T13:05:06Z"},{"name":"the-browns-solution-to-erods-o0O-nx3-6-for-1-with--1-3","colour":[[240,232,95],[42,217,41]],"leaves":[{"p":"README.md","sz":11083,"sha":"ea007a1e5c8f66f2841c22508ca805b2f5b3c291","c":[[234,16,122],[30,92,143]]},{"p":"crank.py","sz":2424,"sha":"12b034336e81c4df82611006dfdc2dc7dcc112a6","c":[[18,176,52],[51,110,129]]},{"p":"index.html","sz":12911,"sha":"7d8f292fe5d4ac17748939f7fb7ca78d93cb6342","c":[[125,143,41],[47,229,212]]},{"p":"motor.html","sz":9385,"sha":"e21577f850f16e5bbc6bbdfed1a1a5fdb6dc8351","c":[[226,21,119],[240,80,240]]},{"p":"reframe_check.py","sz":2594,"sha":"ba82afd127cafa0566894752367b88804203d704","c":[[186,130,175],[209,39,202]]},{"p":"trianti.py","sz":2771,"sha":"3cb39d96050f6eae5c0f95929ef18a54329518fe","c":[[60,179,157],[150,16,16]]},{"p":"trunk.py","sz":3223,"sha":"5cefbf01a659b5f8bb23a0dd8fef8ba2bba793b0","c":[[92,239,191],[16,166,89]]}],"pushed":"2026-08-01T17:59:14Z"},{"name":"does-2-to-the-n-always-contain-a-digit-2-in-base-3","colour":[[35,129,68],[97,34,72]],"leaves":[{"p":"README.md","sz":5337,"sha":"e3b7d34118dba882cdd036d82747e1da783c6d54","c":[[227,183,211],[65,24,219]]},{"p":"index.html","sz":10324,"sha":"3f83f399325dfa9bc48377604f5513ca0756f343","c":[[63,131,240],[153,50,93]]},{"p":"reframe_check.py","sz":2594,"sha":"ba82afd127cafa0566894752367b88804203d704","c":[[186,130,175],[209,39,202]]},{"p":"trunk.py","sz":3223,"sha":"5cefbf01a659b5f8bb23a0dd8fef8ba2bba793b0","c":[[92,239,191],[16,166,89]]}],"pushed":"2026-08-01T17:36:20Z"},{"name":"identity-kernel-registry","colour":[[240,204,240],[42,131,191]],"leaves":[{"p":"README.md","sz":5627,"sha":"9d57f26649a3e771cbe46e326a600b0a1c47fefe","c":[[157,87,240],[102,73,163]]},{"p":"index.html","sz":6962,"sha":"35f3f0fcc1aba068cb09d96de029c68c62b3a423","c":[[53,240,240],[240,193,171]]},{"p":"registry.py","sz":6995,"sha":"1e3b5595ee700669d3933c49a55a35effaac3d4d","c":[[30,59,85],[149,238,112]]}],"pushed":"2026-08-01T19:02:25Z"},{"name":"does-the-closure-survive-81-levels","colour":[[192,144,41],[181,189,240]],"leaves":[{"p":"README.md","sz":6122,"sha":"4896427f2a13257e05639fef4bdbfb8dcf1ceede","c":[[72,150,66],[127,42,19]]},{"p":"compose.py","sz":5613,"sha":"f3574ed13bd4c18ca1fe4d42c2fb5d46f635807a","c":[[240,87,78],[209,59,212]]},{"p":"index.html","sz":10285,"sha":"6b4ba65e3036ed7a8de66af91f312c662ffcc624","c":[[107,75,166],[94,48,54]]}],"pushed":"2026-08-01T18:34:52Z"},{"name":"light-boat-engine-ships-with-oils","colour":[[115,22,42],[220,16,78]],"leaves":[{"p":"README.md","sz":6964,"sha":"28c889011fe8b1fd5b7dd1b1aeb1f7622d458943","c":[[40,200,137],[16,31,232]]},{"p":"boat.html","sz":14253,"sha":"4deb1a571f234f8de1daf29b9ef4faea405057b5","c":[[77,235,26],[87,31,35]]},{"p":"index.html","sz":10941,"sha":"598675e81becb1b5ea33fec148fe3df6c53895e9","c":[[89,134,117],[232,27,236]]}],"pushed":"2026-08-01T18:23:27Z"},{"name":"The-Brown-Light-erdos-Engine-block-powered-by-light","colour":[[210,240,92],[133,227,122]],"leaves":[{"p":"README.md","sz":5796,"sha":"411384b8568a44fcd8762636bd799ffc9235ac03","c":[[65,19,132],[184,86,138]]},{"p":"crank.py","sz":2424,"sha":"12b034336e81c4df82611006dfdc2dc7dcc112a6","c":[[18,176,52],[51,110,129]]},{"p":"index.html","sz":9609,"sha":"82f01acd86dfbb32884517457569186fbf5c52a2","c":[[130,240,26],[205,134,223]]}],"pushed":"2026-08-01T18:01:28Z"},{"name":"two-fixed-points-have-an-interval","colour":[[16,150,140],[240,27,20]],"leaves":[{"p":"README.md","sz":3593,"sha":"8d881d500dbeca948ff64d8f4b0d6e4f07aaf494","c":[[141,136,29],[80,16,190]]},{"p":"index.html","sz":8788,"sha":"79f233614b3b1f9b8519e8a1cfda28b14774e316","c":[[121,240,51],[97,75,59]]}],"pushed":"2026-08-01T19:42:28Z"},{"name":"tribute-three-around-a-free-centre","colour":[[118,110,76],[16,240,29]],"leaves":[{"p":"README.md","sz":2600,"sha":"026d5f1b6ec494e9a2369f1683d4ea991589ca7a","c":[[16,109,95],[27,110,196]]},{"p":"index.html","sz":9296,"sha":"2ac6abb98a9743a1b5ec8590ba6ee4b78fe13d9b","c":[[42,198,171],[185,138,151]]}],"pushed":"2026-08-01T19:26:01Z"},{"name":"Higgs-Bell-Hilbert-and-Brown-at-the-zero","colour":[[25,151,232],[16,107,217]],"leaves":[{"p":"README.md","sz":5631,"sha":"37e827dbca466a9534d9f0732ee617237c20afea","c":[[55,232,39],[219,202,70]]},{"p":"index.html","sz":14589,"sha":"a5d4b02c1290bc8d44f9e3901c27414e9cc26f46","c":[[165,212,176],[44,18,144]]}],"pushed":"2026-08-01T19:16:21Z"},{"name":"Browns-infinite-play-and-zoom","colour":[[41,145,184],[207,125,53]],"leaves":[{"p":"README.md","sz":5783,"sha":"e7f428b6a3cfeb4f8b362a138dd22a953c63a1f2","c":[[231,240,40],[182,163,207]]},{"p":"index.html","sz":8636,"sha":"035f20ac320d8955c77623ec4d02782e9c930f12","c":[[16,95,32],[172,50,16]]}],"pushed":"2026-08-01T18:47:40Z"},{"name":"free-at-all-levels","colour":[[81,214,107],[95,166,130]],"leaves":[{"p":"README.md","sz":4649,"sha":"0e1d05701dcf8d6ea4a18f1e8e4f0c6baf8bbba1","c":[[80,146,80],[112,29,207]]},{"p":"index.html","sz":5944,"sha":"02c6faea6f4af7a39e91c314369dcdbcb48c91f8","c":[[16,198,240],[234,111,74]]}],"pushed":"2026-08-01T18:42:14Z"},{"name":"one-click","colour":[[240,76,44],[45,200,32]],"leaves":[{"p":"README.md","sz":3275,"sha":"3f46394060adf3997667158c1b4a573906fef95d","c":[[63,70,57],[64,96,173]]},{"p":"index.html","sz":9795,"sha":"43bf96092228aa291e76fad1c0675f8828141c27","c":[[67,191,150],[66,142,167]]}],"pushed":"2026-08-01T16:54:45Z"},{"name":"how-and-why-the-system-works","colour":[[23,171,62],[28,58,93]],"leaves":[{"p":"HOW-AND-WHY-THE-SYSTEM-WORKS.md","sz":27918,"sha":"da056205a1dd46cafd3afd0e74141eaca101ca1e","c":[[218,16,98],[16,161,221]]},{"p":"README.md","sz":27918,"sha":"da056205a1dd46cafd3afd0e74141eaca101ca1e","c":[[218,16,98],[16,161,221]]}],"pushed":"2026-08-01T15:52:38Z"},{"name":"the-leaves-are-not-the-message","colour":[[155,151,40],[140,141,34]],"leaves":[{"p":"README.md","sz":11273,"sha":"d74c6c81941e2313ff6fd21a0bc733002967f913","c":[[215,76,108],[129,148,30]]},{"p":"THE-LEAVES-ARE-NOT-THE-MESSAGE.md","sz":11273,"sha":"d74c6c81941e2313ff6fd21a0bc733002967f913","c":[[215,76,108],[129,148,30]]}],"pushed":"2026-08-01T16:28:03Z"},{"name":"Be-infinitly-express-spherically-free","colour":[[217,65,67],[202,67,59]],"leaves":[{"p":"README.md","sz":9552,"sha":"17c6e4bb63b9a7582b38de1352aee65eb09940fc","c":[[23,198,228],[187,99,185]]},{"p":"index.html","sz":27819,"sha":"3bf9b34866c384519a74b53dce9c44b4633c46d5","c":[[59,240,179],[72,102,195]]},{"p":"make_repo.py","sz":2679,"sha":"b35217e244990a567de27721080456d1c82906a2","c":[[179,82,23],[226,68,153]]}],"pushed":"2026-08-01T20:29:15Z"}],"failed":[]};
 /* END BAKED */
 const BLO=16,BHI=240,LLO=32,LHI=224;
 const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
@@ -120,10 +130,34 @@ function fit(){W=innerWidth||1280;H=innerHeight||800;cv.width=W*DPR;cv.height=H*
   g.setTransform(DPR,0,0,DPR,0,0);}
 addEventListener("resize",fit);fit();
 
-let yaw=.5,pitch=-.2,zoom=1,t=0,last=0,live=false,drag=null,NODES=[],P=[],RAYS=true;
-addEventListener("keydown",e=>{ if(e.key==="r"||e.key==="R"){ RAYS=!RAYS;
-  document.getElementById("nray").textContent=RAYS?
-    (NODES.filter(n=>n.kind==="leaf").length+" · press R to hide"):"hidden"; }});
+let yaw=.5,pitch=-.2,zoom=1,t=0,last=0,live=false,drag=null,NODES=[],P=[],
+    RAYS=true,FROZEN=false,TRIPLE=false;
+
+/* FREEZE, AND PLAY x3.
+   A branch has no sway term. A leaf does — every leaf carries its own phase.
+   So if you draw the same instant three times, one third of a cycle apart, the
+   branches land on themselves and stay sharp while the leaves smear into arcs.
+   Nothing is filtered and nothing is decided: what survives three plays is what
+   did not depend on when you looked. THAT is the tree. The leaves are the part
+   that moved.                                                                 */
+/* A third of the LEAF's cycle, not a third of the clock. The sway runs at 0.8,
+   so the offset that actually thirds it is (2pi/3)/0.8. Using 2pi/3 raw would
+   have thirded the wrong thing and smeared by a couple of pixels — the right
+   period is the one belonging to the mover, not the one belonging to time.   */
+const THIRD=(2*Math.PI/3)/0.8;
+addEventListener("keydown",e=>{
+  const k=e.key.toLowerCase();
+  if(k==="r"){ RAYS=!RAYS; hudRay(); }
+  if(k==="3"){ TRIPLE=!TRIPLE; hudRay(); }
+  if(e.code==="Space"||k===" "){ e.preventDefault(); FROZEN=!FROZEN; hudRay(); }
+});
+function hudRay(){
+  const L=NODES.filter(n=>n.kind==="leaf").length;
+  document.getElementById("nray").textContent=RAYS?(L+" · R hides"):"hidden";
+  document.getElementById("nplay").textContent=
+    (FROZEN?"frozen":"playing")+" · "+
+    (TRIPLE?"x3 — every rate, none zero":"x1");
+}
 
 /* ---------------- THE RAINBOW STAR ----------------
    SIX points, because six orderings of three channels is exactly
@@ -171,12 +205,31 @@ function star(cx,cy,s,pts,scale,spinRate){
   g.restore();
 }
 
+/* NOTHING HAS RATE ZERO.
+   I first drew the branches with no sway term at all, which is a claim that the
+   tree stands still while only its leaves move. It is false. Photograph GitHub
+   now and again in twenty seconds and the trunk has moved too — measured
+   tonight: between two pushes the repository's tree sha changed, so the BRANCH
+   changed colour by (20,123,-118) and (-142,-32,-51). Not a leaf. The branch.
+   So every branch now carries a rate taken from its own pushed_at:
+       r = 1 / (1 + age_in_days)      fresh -> 1, a month old -> 0.032
+   It approaches zero and never reaches it, because "never moved" does not occur
+   in the data and must not occur in the drawing.                             */
+const NOW=Date.now();
+function rateOf(pushed){
+  if(!pushed) return 0.18;                       // unknown rate, NOT no rate
+  const days=Math.max(0,(NOW-Date.parse(pushed))/86400000);
+  return 1/(1+days);
+}
+
 function layout(tree){
   const out=[], n=tree.length, RB=210;
   tree.forEach((b,i)=>{
     const [ux,uy,uz]=spherePoint(i,n);
     const bx=ux*RB, by=uy*RB, bz=uz*RB;
-    out.push({kind:"branch",x1:bx,y1:by,z1:bz,col:b.colour,name:b.name,fam:i%3});
+    const r=rateOf(b.pushed);
+    out.push({kind:"branch",x1:bx,y1:by,z1:bz,col:b.colour,name:b.name,fam:i%3,
+              rate:r, amp:2+11*r, ph:i*1.31, pushed:b.pushed});
     const m=b.leaves.length;
     b.leaves.forEach((l,j)=>{
       const [lx,ly,lz]=spherePoint(j,Math.max(2,m));
@@ -184,7 +237,9 @@ function layout(tree){
       out.push({kind:"leaf",
         x:bx+lx*rr, y:by+ly*rr, z:bz+lz*rr,
         col:l.c, path:l.p, sz:l.sz, sha:l.sha, repo:b.name,
-        fam:i%3, ph:(i*5+j)*0.6});
+        fam:i%3, ph:(i*5+j)*0.6,
+        /* the leaf rides its branch AND moves on its own — the motions add */
+        brate:r, bamp:2+11*r, bph:i*1.31});
     });
   });
   return out;
@@ -204,44 +259,58 @@ const rgb=c=>"rgb("+c[0]+","+c[1]+","+c[2]+")";
 function frame(ts){
   if(!last)last=ts;
   const dt=Math.max(0,Math.min(.05,(ts-last)/1000));last=ts;
-  if(live){t+=dt; if(!drag) yaw+=dt*0.17;}
-  g.fillStyle="rgba(4,4,10,0.34)";g.fillRect(0,0,W,H);
+  if(live&&!FROZEN){t+=dt; if(!drag) yaw+=dt*0.17;}
+  g.fillStyle="rgba(4,4,10,"+(TRIPLE?0.20:0.34)+")";g.fillRect(0,0,W,H);
   g.globalCompositeOperation="lighter";
   P.length=0;
   const O=proj(0,0,0);
+  const leafAt=(n,tt)=>proj(
+    n.x+Math.sin(tt*.8+n.ph)*6      + Math.sin(tt*n.brate*.9+n.bph)*n.bamp,
+    n.y,
+    n.z+Math.cos(tt*.6+n.ph)*6      + Math.cos(tt*n.brate*.7+n.bph)*n.bamp);
+  /* the branch moves too — slower, by its own measured rate, never by nothing */
+  const branchAt=(n,tt)=>proj(n.x1+Math.sin(tt*n.rate*.9+n.ph)*n.amp, n.y1,
+                              n.z1+Math.cos(tt*n.rate*.7+n.ph)*n.amp);
+  const PLAYS=TRIPLE?[0,THIRD,2*THIRD]:[0];
   const drawn=NODES.map(n=>{
-    if(n.kind==="branch"){const B=proj(n.x1,n.y1,n.z1);return {...n,B,depth:B[3]};}
-    const sw=Math.sin(t*.8+n.ph)*6;
-    const p=proj(n.x+sw,n.y,n.z+Math.cos(t*.6+n.ph)*6);
+    if(n.kind==="branch"){const B=branchAt(n,t);return {...n,B,depth:B[3]};}
+    const p=leafAt(n,t);
     return {...n,p,depth:p[3]};
   }).sort((a,b)=>b.depth-a.depth);
   for(const n of drawn){
     if(n.kind==="branch"){
-      const gr=g.createLinearGradient(O[0],O[1],n.B[0],n.B[1]);
-      gr.addColorStop(0,rgb(n.col[0]));gr.addColorStop(1,rgb(n.col[1]));
-      g.strokeStyle=gr;g.globalAlpha=.5;g.lineWidth=Math.max(.8,3*n.B[2]);
-      g.beginPath();g.moveTo(O[0],O[1]);g.lineTo(n.B[0],n.B[1]);g.stroke();
-    }else{
-      const [x,y,s]=n.p;
-      /* THE RAY. Drawn transparent at the source and coloured only where it
-         ends, because that is how it actually is: you never see a beam, you
-         see the thing that stopped it. The leaf is not the light. The leaf is
-         where the light was interrupted, and its colour is what it did to it. */
-      if(RAYS){
-        const ry=g.createLinearGradient(O[0],O[1],x,y);
-        ry.addColorStop(0,"rgba(0,0,0,0)");
-        ry.addColorStop(.72,"rgba(0,0,0,0)");
-        ry.addColorStop(1,rgb(n.col[0]));
-        g.strokeStyle=ry; g.globalAlpha=.20; g.lineWidth=Math.max(.5,1.1*s);
-        g.beginPath(); g.moveTo(O[0],O[1]); g.lineTo(x,y); g.stroke();
+      const A=1/PLAYS.length;
+      for(const off of PLAYS){
+        const B=off?branchAt(n,t+off):n.B;
+        const gr=g.createLinearGradient(O[0],O[1],B[0],B[1]);
+        gr.addColorStop(0,rgb(n.col[0]));gr.addColorStop(1,rgb(n.col[1]));
+        g.strokeStyle=gr;g.globalAlpha=.5*A;g.lineWidth=Math.max(.8,3*B[2]);
+        g.beginPath();g.moveTo(O[0],O[1]);g.lineTo(B[0],B[1]);g.stroke();
       }
-      const gr=g.createRadialGradient(x,y,0,x,y,Math.max(2,7*s));
-      gr.addColorStop(0,rgb(n.col[0]));gr.addColorStop(1,"rgba(0,0,0,0)");
-      g.globalAlpha=.9;g.fillStyle=gr;
-      g.beginPath();g.arc(x,y,Math.max(2,7*s),0,6.2832);g.fill();
-      g.globalAlpha=1;g.fillStyle=rgb(n.col[1]);
-      g.beginPath();g.arc(x,y,Math.max(1,2.3*s),0,6.2832);g.fill();
-      P.push({x,y,r:Math.max(6,9*s),n});
+    }else{
+      const A=1/PLAYS.length;
+      for(const off of PLAYS){
+        const [x,y,s]=off?leafAt(n,t+off):n.p;
+        /* THE RAY. Drawn transparent at the source and coloured only where it
+           ends, because that is how it actually is: you never see a beam, you
+           see the thing that stopped it. The leaf is not the light. The leaf
+           is where the light stopped, and its colour is what it did to it.   */
+        if(RAYS){
+          const ry=g.createLinearGradient(O[0],O[1],x,y);
+          ry.addColorStop(0,"rgba(0,0,0,0)");
+          ry.addColorStop(.72,"rgba(0,0,0,0)");
+          ry.addColorStop(1,rgb(n.col[0]));
+          g.strokeStyle=ry; g.globalAlpha=.20*A; g.lineWidth=Math.max(.5,1.1*s);
+          g.beginPath(); g.moveTo(O[0],O[1]); g.lineTo(x,y); g.stroke();
+        }
+        const gr=g.createRadialGradient(x,y,0,x,y,Math.max(2,7*s));
+        gr.addColorStop(0,rgb(n.col[0]));gr.addColorStop(1,"rgba(0,0,0,0)");
+        g.globalAlpha=.9*A;g.fillStyle=gr;
+        g.beginPath();g.arc(x,y,Math.max(2,7*s),0,6.2832);g.fill();
+        g.globalAlpha=A;g.fillStyle=rgb(n.col[1]);
+        g.beginPath();g.arc(x,y,Math.max(1,2.3*s),0,6.2832);g.fill();
+        if(!off) P.push({x,y,r:Math.max(6,9*s),n});
+      }
     }
   }
   g.globalCompositeOperation="source-over";
@@ -302,6 +371,17 @@ async function harvest(){
     return {tree:cached.tree,failed:[],at:cached.at,mode:"cached"};
 
   let done=0; const failed=[];
+
+  /* ONE extra call buys the rate of every branch. pushed_at is when the repo
+     itself last moved, so the branch gets a real speed instead of the zero I
+     had wrongly hard-coded into it.                                          */
+  let moved={};
+  try{
+    const lr=await fetch("https://api.github.com/users/"+OWNER+
+      "/repos?per_page=100&sort=pushed");
+    if(lr.ok) for(const r of await lr.json()) moved[r.name]=r.pushed_at;
+  }catch(e){}
+
   const jobs=REPOS.map(async name=>{
     try{
       const r=await fetch("https://api.github.com/repos/"+OWNER+"/"+name+
@@ -312,7 +392,7 @@ async function harvest(){
       const leaves=t.tree.filter(e=>e.type==="blob")
         .map(e=>({p:e.path,sz:e.size||0,sha:e.sha,c:colour(e.sha)}));
       done++; nb.textContent=done;
-      return {name,colour:colour(t.sha||""),leaves};
+      return {name,colour:colour(t.sha||""),leaves,pushed:moved[name]||null};
     }catch(err){ failed.push(name+" (network)"); return null; }
   });
   const tree=(await Promise.all(jobs)).filter(Boolean);
@@ -361,6 +441,6 @@ document.getElementById("start").onclick=async e=>{
   f0.textContent=tree.filter((_,i)=>i%3===0).length;
   f1.textContent=tree.filter((_,i)=>i%3===1).length;
   f2.textContent=tree.filter((_,i)=>i%3===2).length;
-  document.getElementById("nray").textContent=L+" · press R to hide";
+  hudRay();
 };
 </script>

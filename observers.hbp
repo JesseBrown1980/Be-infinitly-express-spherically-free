@@ -1,0 +1,40 @@
+MAP|form=arm_k = 3*c_k - sum(c)|matrix=3I-J|json=0
+RANK|rank=2|nullity=1|exact=fractions|json=0
+NULLVEC|v=(1,1,1)|image=(0, 0, 0)|is_zero=True|json=0
+DETERMINANT|det=0|reason=rows_sum_to_zero|json=0
+OBSERVERS|colour=(37, 152, 91)|placed=1000001|span=-500000..500000|arms=(-169, 176, -7)|arms_changed=0|exact_integers=1|json=0
+GAIN|tested=2000|arms_scale_exactly=1|zero_sum_preserved=1|invariant=0|note=uniform_gain_is_equivariant_not_invariant|json=0
+OIL|kind=neutral|density_added=300|arms=(-1095, 1215, -120)|changed=0|json=0
+OIL|kind=neutral|density_added=1000|arms=(-1095, 1215, -120)|changed=0|json=0
+OIL|kind=neutral|density_added=4321|arms=(-1095, 1215, -120)|changed=0|json=0
+OIL|kind=neutral|density_added=99999|arms=(-1095, 1215, -120)|changed=0|json=0
+OIL|kind=neutral|density_added=-250|arms=(-1095, 1215, -120)|changed=0|json=0
+OIL|kind=coloured|density_added=(120, 0, 0)|arm_delta=(240, -120, -120)|equals_arms_of_the_oil=1|json=0
+OIL|kind=coloured|density_added=(0, 45, 0)|arm_delta=(-45, 90, -45)|equals_arms_of_the_oil=1|json=0
+OIL|kind=coloured|density_added=(7, -7, 0)|arm_delta=(21, -21, 0)|equals_arms_of_the_oil=1|json=0
+OIL|kind=coloured|density_added=(100, 100, 99)|arm_delta=(1, 1, -2)|equals_arms_of_the_oil=1|json=0
+SNOW|colour=(128, 128, 128)|spread=0|free_observers=225|brute_force=225|formula_matches=1|json=0
+SNOW|colour=(100, 128, 150)|spread=50|free_observers=175|brute_force=175|formula_matches=1|json=0
+SNOW|colour=(16, 128, 240)|spread=224|free_observers=1|brute_force=1|formula_matches=1|json=0
+SNOW|colour=(10, 128, 250)|spread=240|free_observers=0|brute_force=0|formula_matches=1|json=0
+SNOW|colour=(37, 152, 91)|spread=115|free_observers=110|brute_force=110|formula_matches=1|json=0
+SNOW|colour=(60, 61, 62)|spread=2|free_observers=223|brute_force=223|formula_matches=1|json=0
+CLIP|checked=8192|clipped_and_arms_changed=4728|note=clipping_is_not_affine_so_it_is_not_in_the_nullspace|json=0
+LEVEL|depth=1|states=3|band=-1..1|spread=0|free_observers=3|json=0
+LEVEL|depth=1|states=3|band=-1..1|spread=1|free_observers=2|json=0
+LEVEL|depth=1|states=3|band=-1..1|spread=2|free_observers=1|json=0
+LEVEL|depth=2|states=9|band=-4..4|spread=0|free_observers=9|json=0
+LEVEL|depth=2|states=9|band=-4..4|spread=1|free_observers=8|json=0
+LEVEL|depth=2|states=9|band=-4..4|spread=2|free_observers=7|json=0
+LEVEL|depth=3|states=27|band=-13..13|spread=0|free_observers=27|json=0
+LEVEL|depth=3|states=27|band=-13..13|spread=1|free_observers=26|json=0
+LEVEL|depth=3|states=27|band=-13..13|spread=2|free_observers=25|json=0
+LEVEL|depth=4|states=81|band=-40..40|spread=0|free_observers=81|json=0
+LEVEL|depth=4|states=81|band=-40..40|spread=1|free_observers=80|json=0
+LEVEL|depth=4|states=81|band=-40..40|spread=2|free_observers=79|json=0
+LEVEL|depth=5|states=243|band=-121..121|spread=0|free_observers=243|json=0
+LEVEL|depth=5|states=243|band=-121..121|spread=1|free_observers=242|json=0
+LEVEL|depth=5|states=243|band=-121..121|spread=2|free_observers=241|json=0
+RADIOMETRIC|watts=100|observers=2|same_for_both=1|json=0
+PHOTOMETRIC|K_cd=683|exact_by_SI=1|observer_A_lm=29369|observer_B_lm=24588|agree=0|json=0
+CONCLUSION|radiometric=observer_free_INVARIANT|photometric=carries_a_chosen_observer_in_the_unit|json=0

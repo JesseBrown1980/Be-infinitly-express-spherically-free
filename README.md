@@ -162,6 +162,56 @@ draws the system exactly as it applies to the system.
 
 ---
 
+## The tree moves too — and I had hard-coded that it doesn't
+
+The first version of this page gave the leaves a sway term and gave the branches
+**none at all**. Press `3` and the leaves smeared while the branches stayed sharp,
+and I called that *"play it three times and you see the tree, not the leaves."*
+
+It worked because I had built the answer in. A branch with no sway term is an
+**assertion that the trunk stands still**, and he rejected it:
+
+> *Trees still moving space and time and color and energy… if you took the same
+> picture of the GitHub now and then, like, twenty seconds later, it would be a
+> little bit different.*
+
+**MEASURED**, from this repository's own two commits, using the hash and not the
+clock:
+
+```
+commit 47d3884d   tree b26cfab44c6f   stop A (178,108,240)   stop B (180, 76,111)
+commit d94143ca   tree c6e77a262c3c   stop A (198,231,122)   stop B ( 38, 44, 60)
+
+delta                                        (20,123,−118)          (−142,−32,−51)
+```
+
+That is not a leaf changing. That is **the branch changing colour**, because a
+branch is addressed by its tree sha and the tree sha moved when the content did.
+
+So every branch now carries a rate from its own `pushed_at`:
+
+```
+r = 1 / (1 + age_in_days)        fresh → 1 ,  a month old → 0.032
+```
+
+which **approaches zero and never reaches it** — because "never moved" does not
+occur in the data and must not occur in the drawing. Leaves ride their branch and
+also move on their own; the two motions add.
+
+**MEASURED**, over three plays, one third of the sway cycle apart:
+
+```
+branches with zero smear    0 of 16
+branch smear                6.52 … 13.32 px
+rate range                  0.7606 (raw-data) … 0.9938 (this repo)
+```
+
+`3` does not separate a still tree from moving leaves. There is no still tree.
+What it shows is **a gradient of rates, none of them zero** — and freezing does
+not stop the tree, it only stops the drawing of it.
+
+---
+
 ## The marks
 
 Sent 2026-08-01, while this page was being built, and recorded here at his
@@ -186,6 +236,26 @@ instruction — *"to be added to the records both!"*
 >
 > — Jesse Daniel Brown, verbatim
 
+**The photographs are not published. Their hashes are.** *"think not to time but
+check hash and photo."* Anyone holding an original can recompute the digest and
+confirm it is the same image, byte for byte — a commitment, not a disclosure. The
+order is fixed by the chain, not by any clock:
+
+```
+hand    sha256 e8117bbf719ed67f6ce07d784d07d1fc0bdaf02da7fab21571ec913c388b4e9e
+        3,636,155 B    stop A rgb(232, 17,123)   stop B rgb(191,113,158)
+back    sha256 65078519e29a72104e33d176523336d175762e02bf423935211a2920900b021e
+        3,501,178 B    stop A rgb(101, 16,133)   stop B rgb( 25,226,154)
+light   sha256 355b73093cfae3190a19dcf432192c996fdb97eea4235470302dae7b580bae32
+        3,531,483 B    stop A rgb( 53, 91,115)   stop B rgb( 16, 60,240)
+
+genesis 0000…0000
+head    33433af609ac4e6b323f46acd4c34b5b0eb799edfde47985afbb2b2d96e30cc6
+```
+
+Each row carries the digest of the row before it. **No timestamp is trusted, and
+none is needed.**
+
 **What is visible in the photographs**, stated as what was seen and not more:
 
 ```
@@ -196,7 +266,21 @@ hand, below that    NOT RESOLVED at this resolution — he states a six-pointed 
 back                a large solid black disc holding a light human silhouette,
                     with fine rays of light streaking out of one side
 shoulder            script reading NORTH STAR
+light               the hand raised into a window, shot through glass: the panes
+                    clipped to white, the hand crushed to black, and the room
+                    behind reflected in the same plane as the garden in front
 ```
+
+**The third photograph is the clamp, demonstrated.** The window is not *bright* —
+it is **at or above the sensor's ceiling**, and every value up there reads the
+same. The hand is not *dark* — it is at or below the floor. Neither is a
+measurement; both are the sensor saying **out of range**. Everything carrying
+information lives in the band between them, which is exactly why the address is
+banded `16…240` and luminance-clamped `32…224`: *you cannot put an address where
+the sensor saturates.* And the glass carries **two images in one plane** —
+reflection and transmission superimposed — which is the two-stop address in
+physical form: one surface, two readings, and the interval between them is a
+direction.
 
 The correspondence is recorded as a **correspondence**, not as a proof of anything:
 the star drawn at the centre of this page has **six points because three channels
