@@ -1,5 +1,7 @@
 # infinite expression of github
 
+> **Part of it all:** [the bridge](https://jessebrown1980.github.io/the-bridge-to-all-of-it/) — every public thing in one place, so none of it gets lost.
+
 ### `Be infinitly express spherically free`==~~~《》☆○•□■
 
 **One button:** → **https://jessebrown1980.github.io/Be-infinitly-express-spherically-free/**
